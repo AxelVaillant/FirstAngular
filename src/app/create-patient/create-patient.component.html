@@ -1,0 +1,23 @@
+<div class="container">
+
+    
+    <form>
+        <div class="form-group">
+          <label for="nompatient">Nom du Patient</label>
+          <input name="nompatient" type="text" class="form-control" id="nompatient" [(ngModel)]="newPatient.nompatient" >
+          
+        </div>
+        <div class="form-group">
+          <label for="prenompatient">Prenom du Patient</label>
+          <input name="prenompatient" type="text" class="form-control" id="prenompatient" [(ngModel)]="newPatient.prenompatient">
+        </div>
+        <div class="form-group">
+            <label for="idmedecin">IdMedecin</label>
+            <select class= "form-control" name="idmedecin" id="idmedecin" [(ngModel)]="newPatient.idmedecin">
+                <option *ngFor="let unMedecin of listMedecin;" [ngValue]="unMedecin">{{unMedecin.idmedecin}}</option>
+            </select>
+          </div>
+
+        <button type="submit" (click)="createPatient()" class="btn btn-primary">Submit</button>
+      </form>
+    </div>

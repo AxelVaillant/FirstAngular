@@ -1,0 +1,25 @@
+
+<h1>Liste des Hopitaux</h1>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Id</th> 
+        <th scope="col">Nom</th>
+        <th scope="col">Adresse</th>
+        <th scope="col">Capacite</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let unHopital of listHopitaux">
+        <td>{{unHopital.idhopital}}</td> 
+        <td>{{unHopital.nomhopital}}</td> 
+        <td>{{unHopital.lieuhopital}}</td> 
+        <td>{{unHopital.capacite}}</td> 
+        <td>
+            <a   [routerLink]="['update/'+unHopital.idhopital]"  class="btn btn-default btn-sm" >Edit</a>
+            <a  type="submit" class="btn btn-danger btn-sm" (click)='deletehopital(unHopital.idhopital)' name="unHopital.idhopital" >Delete</a>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
