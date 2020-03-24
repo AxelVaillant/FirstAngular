@@ -13,8 +13,11 @@
         </div>
         <div class="form-group">
             <label for="nomhopital">Hopital</label>
-            <input name="nomhopital" type="text" class="form-control" id="nomhopital" [(ngModel)]="medecin.nomhopital">
+            <select class= "form-control" name="nomhopital" id="nomhopital"[compareWith]="compareFn" [(ngModel)]="medecin.nomhopital">
+              <option *ngFor="let unHopital of listHopitaux;" [ngValue]="unHopital">{{unHopital.nomhopital}}</option>
+          </select>
           </div>
+        
 
         <button type="submit" (click)="updateMedecin(medecin.idmedecin,medecin)"  class="btn btn-primary">Modifier</button>
       </form>

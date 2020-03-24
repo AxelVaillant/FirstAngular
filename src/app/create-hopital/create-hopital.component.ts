@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HopitalService } from '../service/hopital.service';
 import { Hopital } from '../models/hopital';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-create-hopital',
@@ -16,9 +18,18 @@ export class CreateHopitalComponent implements OnInit {
   }
   createHopital(){
     this.hopitalservice.create(this.newHopital).subscribe(
-      data=>(
-      console.log(data)
-      )
-    )
+      data => {
+      if( data['idhopital'] == 0){
+        
+      }else if (data['idhopital']){
+        Swal.fire(
+          'Hopital ajouté!',
+          this.newHopital.nomhopital +' a bien été ajouté !',
+          'success'
+        ).then(()=>
+         window.location.href = "http://localhost:4200/hopital"
+        )
+      }
+    })
   }
 }

@@ -17,7 +17,7 @@
             <td>{{unMedecin.prenommedecin}}</td> 
             <td>{{unMedecin.nomhopital.idhopital}}</td> 
             <td>
-              <a   [routerLink]="['update/'+unMedecin.idmedecin]"  class="btn btn-default btn-sm" >Edit</a>
+              <a   [routerLink]="['update/'+unMedecin.idmedecin]"  class="btn btn-primary btn-sm" >Edit</a>
               <a  type="submit" class="btn btn-danger btn-sm" (click)='deletemedecin(unMedecin.idmedecin)' >Delete</a>
           </td>
       </tr>

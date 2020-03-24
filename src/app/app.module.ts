@@ -14,6 +14,7 @@ import { UpdateHopitalComponent } from './update-hopital/update-hopital.componen
 import { HeaderComponent } from './header/header.component';
 import { UpdateMedecinComponent } from './update-medecin/update-medecin.component';
 import { UpdatePatientComponent } from './update-patient/update-patient.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { UpdatePatientComponent } from './update-patient/update-patient.componen
     HeaderComponent,
     UpdateMedecinComponent,
     UpdatePatientComponent,
+    HomepageComponent,
 
   ],
   imports: [

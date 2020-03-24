@@ -3,6 +3,7 @@ import { Medecin } from '../models/medecin';
 import { MedecinService } from '../service/medecin.service';
 import { Hopital } from '../models/hopital';
 import { HopitalService } from '../service/hopital.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-create-medecin',
@@ -23,9 +24,19 @@ export class CreateMedecinComponent implements OnInit {
   }
   createMedecin(){
     this.medecinservice.create(this.newMedecin).subscribe(
-      data=>(
-      console.log(data)
-      )
+      data=>{
+        if( data['idmedecin'] == 0){
+          
+        }else if (data['idmedecin']){
+          Swal.fire(
+            'Medecin ajouté!',
+            this.newMedecin.nommedecin +' a bien été ajouté !',
+            'success'
+          ).then(()=>
+           window.location.href = "http://localhost:4200/medecin"
+          )
+        }
+      }
     )
     
   }

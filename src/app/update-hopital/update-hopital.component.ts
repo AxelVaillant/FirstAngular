@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Hopital } from '../models/hopital';
 import { HopitalService } from '../service/hopital.service';
 import { ActivatedRoute } from '@angular/router';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-update-hopital',
   templateUrl: './update-hopital.component.html',
@@ -31,9 +31,17 @@ this.hopitalservice.getbyid(this.idhopitalURL).subscribe(
   )}
   updateHopital(idH:number , hopital:Hopital){
     this.hopitalservice.updatehopital(idH,hopital).subscribe(
-      data=>(
-      console.log(data)
-      )
-    )
+      data=>{
+        if( data['idhopital'] == 0){
+        
+        }else if (data['idhopital']){
+          Swal.fire(
+            'Hopital modifié!',
+            this.hopital.nomhopital +' a bien été modifié !',
+            'success'
+          ).then(()=>
+           window.location.href = "http://localhost:4200/hopital"
+          )
+        }})
   }
 }

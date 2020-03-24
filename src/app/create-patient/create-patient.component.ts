@@ -3,6 +3,7 @@ import { PatientService } from '../service/patient.service';
 import { Patient } from '../models/patient';
 import { MedecinService } from '../service/medecin.service';
 import { Medecin } from '../models/medecin';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-create-patient',
@@ -23,9 +24,19 @@ export class CreatePatientComponent implements OnInit {
   }
   createPatient(){
     this.patientservice.create(this.newPatient).subscribe(
-      data=>(
-      console.log(data)
-      )
+      data=>{
+        if( data['idpatient'] == 0){
+          
+        }else if (data['idpatient']){
+          Swal.fire(
+            'Patient ajouté!',
+            this.newPatient.nompatient +' a bien été ajouté !',
+            'success'
+          ).then(()=>
+           window.location.href = "http://localhost:4200/patient"
+          )
+        }
+      }
     )
   }
 }

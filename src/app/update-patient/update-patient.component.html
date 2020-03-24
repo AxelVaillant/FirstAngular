@@ -13,7 +13,9 @@
         </div>
         <div class="form-group">
             <label for="idmedecin">Medecin traitant</label>
-            <input name="idmedecin" type="text" class="form-control" id="idmedecin" [(ngModel)]="patient.idmedecin">
+            <select class= "form-control" name="idmedecin" id="idmedecin" [compareWith]="compareFn" [(ngModel)]="patient.idmedecin">
+              <option *ngFor="let unMedecin of listMedecin;" [ngValue]="unMedecin">{{unMedecin.idmedecin}}</option>
+          </select>
           </div>
 
         <button type="submit" (click)="updatePatient(patient.idpatient,patient)"  class="btn btn-primary">Modifier</button>
